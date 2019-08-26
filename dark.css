@@ -1,0 +1,28 @@
+.dark nav{
+    background-color: black !important;
+}
+.dark{
+    color: white;
+    background-color: rgb(63, 63, 63);
+}
+.dark .card , .dark .card-header, .dark .container{
+    background-color: rgb(41, 41, 41);
+}
+.dark nav .container{
+    background-color: black !important;
+}
+.dark .active{
+    background-color: black;
+}
+.dark .border-down{
+    background-color: black;
+}
+.dark .red{
+    color: rgb(202, 202, 202);
+}
+.dark .green{
+    color: rgb(202, 202, 202);
+}
+.dark .yellow{
+    color: rgb(202, 202, 202);
+}
