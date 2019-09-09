@@ -40,7 +40,7 @@ nav{
     z-index: 666;
     min-height: 80px;
     width: 100%;
-    background-color: #35C2FF;
+    background-color: rgb(24, 186, 255);
 }
 .navbar-brand{
     background-color: white;
@@ -111,8 +111,12 @@ nav{
     border-radius: 50px;
     margin-right: 7rem;
     padding-left: 0.6rem !important; 
-    background-color: #35C2FF;
+    background-color: rgb(79, 202, 255);
     color: white !important;
+    box-shadow: 0 0 10px rgba(6, 180, 255, 0.685);
+}
+.card-header{
+    box-shadow: none !important;
 }
 .active .section-icon{
     background-color: white;

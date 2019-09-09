@@ -9,7 +9,7 @@ let data = [
         },
         {
             color:'green',
-            text:`If you own android device you can install <a href="https://drive.google.com/open?id=1fkTZPuiUsktdo6uFfB1WpPN7cXCpo5CT">unofficial timetable application</a> with lots interesting features`
+            text:`You can also use unofficial mobile application from <a href="https://github.com/JRakhimov/">Rakhimov Javohir</a> which has a telegram bot and many interesting features <a href="https://iutimetable.netlify.com/index.html">see the web-site</a>`
         },
     ],
     [
@@ -33,7 +33,7 @@ let data = [
         },
         {
             color:'green',
-            text: `If you are a freshman its probably that you didn't registrate yet, for that you need to register your IUT account in a building library(room 101)`
+            text: `If you are a freshman its probably that you didn't registrate yet, for that you need to register your IUT account in a building library (3rd level computers)`
         },
         {
             color:`green`,
@@ -77,7 +77,7 @@ let data = [
         `Info about GPA system and how to calculate it`,
         {
             color:`green`,
-            text:`A grade point average is a number representing the average value of the accumulated final grades earned in courses over time. More commonly called a GPA, a student’s grade point average is calculated by adding up all accumulated final grades and dividing that figure by the number of grades awarded. This calculation results in a mathematical mean—or average—of all final grades. The most common form of GPA is based on a 0 to 4.0 scale (A = 4.0, B = 3.0, C = 2.0, D = 1.0, and F = 0), with a 4.0 representing a “perfect” GPA—or a student having earned straight As in every course <br> for more information here is <a href="https://www.google.com/search?q=what+is+gpa&oq=what+is+&aqs=chrome.0.69i59j69i57j35i39j0l3.2030j0j1&sourceid=chrome&ie=UTF-8">the link</a>`
+            text:`A grade point average is a number representing the average value of the accumulated final grades earned in courses over time. More commonly called a GPA, a student’s grade point average is calculated by adding up all accumulated final grades and dividing that figure by the number of grades awarded. This calculation results in a mathematical mean—or average—of all final grades. The most common form of GPA is based on a 0 to 4.5 scale (A = 4.0, B = 3.0, C = 2.0, D = 1.0, and F = 0), with a 4.5 representing a “perfect” GPA—or a student having earned straight As in every course <br> for more information here is <a href="https://www.google.com/search?q=what+is+gpa&oq=what+is+&aqs=chrome.0.69i59j69i57j35i39j0l3.2030j0j1&sourceid=chrome&ie=UTF-8">the link</a>`
         },
         {
             color:`green`,
