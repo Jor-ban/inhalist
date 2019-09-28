@@ -56,6 +56,10 @@ let data = [
             text:`For better connection better use <a href="https://www.microsoft.com/ru-ru/windows/microsoft-edge">Microsoft Edge</a>(Internet Explorer) or <a href="https://www.mozilla.org/ru/firefox/new/">Firefox browser</a>`
         },
         {
+            color: 'yellow',
+            text: 'To change your password in e-class you should visit <a href="http://ins.inha.uz/">ins.inha.uz</a>'
+        },
+        {
             color:'red',
             text:`Even if submitting is freezed on 80% and doesn't even try to load, <span style="color:red">DO NOT</span> send you home assignment to teacher by e-mail, telegram or by any other way, some teachers can take your homework after deadline with subtracting some points, but some of them DON'T so, always try to submit as early as possible`
         }
