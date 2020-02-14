@@ -69,7 +69,7 @@ let data = [
         `Info about library books renting and lockers`,
         {
             color:`green`,
-            text:`To rent a book you need to bring a passport copy to library on a-101, you can rent a book for 2 weeks, after you have to return or talk to library staff to extend reading period up to 1 month`
+            text:`To rent a book you need to bring your ID card to library on 3 floor, you can rent a book for 2 weeks, after you have to return or talk to library staff to extend reading period up to 1 month`
         },
         {
             color:`green`,
