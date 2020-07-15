@@ -155,6 +155,16 @@ nav{
 .bPlus{border-color: #35FFC2 !important; color: #35FFC2 !important;}
 .a{border-color: #35E7FF !important; color: #35E7FF !important;}
 .aPlus{border-color: #35B6FF !important; color: #35B6FF !important;}
+/*hovers*/
+.f:hover{box-shadow: 0px 0px 5px #FF3535 !important;}
+.d:hover{box-shadow: 0px 0px 5px #FF7E35 !important;}    
+.dPlus:hover{box-shadow: 0px 0px 5px #FFAE35 !important;}
+.c:hover{box-shadow: 0px 0px 5px#FFEB35 !important;}
+.cPlus:hover{box-shadow: 0px 0px 5px #D7FF35 !important;}
+.b:hover{box-shadow: 0px 0px 5px #76FF35 !important;}
+.bPlus:hover{box-shadow: 0px 0px 5px #35FFC2 !important;}
+.a:hover{box-shadow: 0px 0px 5px #35E7FF !important;}
+.aPlus:hover{box-shadow: 0px 0px 5px #35B6FF !important;}
 /*activated marks*/
 .fActive{background-color: #FF3535 !important; color: white !important;}
 .dActive{background-color: #FF7E35 !important; color: white !important;}

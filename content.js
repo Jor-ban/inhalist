@@ -109,7 +109,7 @@ let data = [
         },
         {
             color:`green`,
-            text:`but also we have a telegram group <a href="https://t.me/joinchat/FYUj_j90LteAEhhVC4NgkQ">IUT super family</a>, where you can deeper know your university life`
+            text:`but also we have a telegram group <a href="https://t.me/joinchat/EMtqDj90LtdYsTWWM2uP6A">IUT super family</a>, where you can deeper know your university life`
         }
     ]
 ];
