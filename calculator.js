@@ -1,106 +1,183 @@
 //data part
+let credits = [
+    {
+        name: 'freshmen_1',
+        OOP_1: 3,
+        Calculus_1: 3,
+        Physics_1: 3,
+        Intro_To_IT: 3,
+        Academic_English_1: 2,
+        Academic_Reading: 2,
+        Physics_Experiment_1: 1,
+    },
+    {
+        name: 'freshmen_2',
+        Calculus_2: 3,
+        Creative_Engineering: 3,
+        Physics_2: 3,
+        OOP_2: 3,
+        Academic_English_2: 2,
+        Academic_Writing: 2,
+        Physics_Experiment_2: 1,
+    },
+    {
+        name: 'sophomore_1',
+        Linear_Algebra : 3,
+        Discrete_Mathematics: 3,
+        Application_Programing_in_Java: 3,
+        Digital_Logic_and_Circuit: 3,
+        Data_Structure : 3,
+        Academic_English_3: 2,
+        Basic_korean_1: 1,
+    },
+    {
+        name: "sophomore_2",
+        Engineering_Math: 3,
+        History_of_Uzbekistan: 3,
+        "Computer_Architecture/Signals": 3,
+        System_Programing: 3,
+        "Internet_Programing/Economics": 2,
+        Academic_English_4: 2,
+        Basic_korean_2: 1,
+    }
+];
 let rating = {
-    aPlus: 'A+',
-    a: 'A',
-    bPlus: 'B+',
-    b: 'B',
-    cPlus: 'C+',
-    c: 'C',
-    dPlus: 'D+',
-    d: 'D',
-    f: 'F'
+    aPlus: {
+        textForm: 'A+',
+        value: 4.5,
+    },
+    a: {
+        textForm: 'A',
+        value: 4,
+    },
+    bPlus: {
+        textForm: 'B+',
+        value: 3.5,
+    },
+    b: {
+        textForm: 'B',
+        value: 3,
+    },
+    cPlus: {
+        textForm: 'C+',
+        value: 2.5,
+    },
+    c: {
+        textForm: 'C',
+        value: 2,
+    },
+    dPlus: {
+        textForm: 'D+',
+        value: 1.5,
+    },
+    d: {
+        textForm: 'D',
+        value: 1,
+    },
+    f: {
+        textForm: 'F',
+        value: 0,
+    },
 }
 let marks = {};
 
-
-//functions
-function isString(number) {
-    if (number / 2) return true;
-    else return false;
+function set(semesterName, course, mark){
+    marks[semesterName][course] = rating[mark]['value'];
+    return calculate(semesterName);
 }
 
-function evaluation(subject) {
-    //HTML text, just divMaker
-    let string = ``;
-    for (let i = 0; i < Object.keys(rating).length; i++) {
-        string += `<div class="` + Object.keys(rating)[i] + `" id="` + subject + Object.keys(rating)[i] + `" onclick = "set('` + subject + `', '` + Object.keys(rating)[i] + `')"><p>` + Object.values(rating)[i] + `</p></div>`
+function setButtonStyle(course, value){
+    let marksList = Object.keys(rating);
+    let textMark = '';
+    switch(value){
+        case 4.5:
+            textMark = 'aPlus'; break;
+        case 4:
+            textMark = 'a'; break;
+        case 3.5:
+            textMark = 'bPlus'; break;
+        case 3:
+            textMark = 'b'; break;
+        case 2.5:
+            textMark = 'cPlus'; break;
+        case 2:
+            textMark = 'c'; break;
+        case 1.5:
+            textMark = 'dPlus'; break;
+        case 1:
+            textMark = 'd'; break;
+        default:
+            textMark = 'f';
     }
-
-    return string;
-}
-
-function set(subject, letter) {
-    marks[subject] = evalStandards(letter);
-    style(subject, letter);
-    // document.getElementById('gpa').innerText = calculateGpa(credits, marks);
-    document.getElementById('gpa').innerHTML = AverageGpa();
-}
-
-function evalStandards(el) {
-    if (el == 'aPlus') return 4.5
-    else if (el == 'a') return 4
-    else if (el == 'bPlus') return 3.5
-    else if (el == 'b') return 3
-    else if (el == 'cPlus') return 2.5
-    else if (el == 'c') return 2
-    else if (el == 'dPlus') return 1.5
-    else if (el == 'd') return 1
-    else if (el == 'f') return 0
-    else return el;
-}
-
-function calculator(creditsObj, marksObj) {
-
-    let calc = 0;
-    let overallCredits = 0;
-    for (let i = 0; i < Object.values(marksObj).length; i++) {
-
-        if (Object.values(creditsObj)[i] && (Object.values(marksObj)[i] || Object.values(marksObj)[i] == 0) && isString(Object.values(creditsObj)[i])) {
-
-            calc += Object.values(creditsObj)[i] * Object.values(marksObj)[i];
-            overallCredits += Object.values(creditsObj)[i];
+    marksList.forEach(mark => {
+        console.log(course, mark)
+        if(mark != textMark){
+            document.getElementById(course + mark).classList.remove(mark + 'Active');
         }
-    }
-    return Math.round(calc * 100 / overallCredits) / 100;
-}
-
-function semesterGpa(from, upTo, id) {
-    let tempObj = {};
-    for (let n = from; n < upTo; n++) {
-        tempObj[Object.keys(credits)[n]] = marks[Object.keys(credits)[n]];
-    }
-    if (calculator(credits, tempObj)) {
-        document.getElementById(id).innerHTML = calculator(credits, tempObj);
-        return calculator(credits, tempObj);
-    } else document.getElementById(id).innerHTML = 0;
-}
-
-function style(subject, letter) {
-
-    for (let i = 0; i < Object.keys(rating).length; i++) {
-        document.getElementById(subject + Object.keys(rating)[i]).classList.remove(Object.keys(rating)[i] + 'Active');
-    }
-    document.getElementById(subject + letter).classList.add(letter + 'Active');
-
+    });
+    document.getElementById(course + textMark).classList.add(textMark + 'Active');
 
 }
+
+function calculateAverage(){
+    let activeSemesters = 0;
+    let sum = 0;
+    Object.keys(marks).forEach(semester =>{
+        if(marks[semester]['overall']){
+            sum += marks[semester]['overall'];
+            activeSemesters++;
+        }
+    });
+    document.getElementById('gpa').innerHTML = (sum / activeSemesters).toFixed(2);
+}
+
+function calculate(semester){
+    let semesterGpa = 0;
+    let earnedMarks = 0;
+    let earnedCredits = 0;
+    let courseCredits = {};
+    credits.forEach(element => {
+        if(element['name'] == semester)
+            courseCredits = element;
+    });
+    Object.keys(marks[semester]).forEach(course => {
+        if(course != 'overall'){
+            earnedMarks += marks[semester][course] * courseCredits[course];
+            earnedCredits += courseCredits[course];
+            if(courseCredits[course] == 0)
+                earnedCredits += 1; // in case if got F
+            setButtonStyle(course, marks[semester][course])
+        }
+    })
+    semesterGpa = earnedMarks / earnedCredits;
+    marks[semester]['overall'] = semesterGpa;
+    document.getElementById(semester).innerHTML = semesterGpa.toFixed(2);
+    calculateAverage();
+}
+
 //main function
 window.onload = function () {
-    let subjectBlock = ' ';
-    for (let i = 0; i < Object.entries(credits).length; i++) {
-        if (Object.keys(credits)[i] == 'line' + i) {
-            subjectBlock += '<div class="width:100 text-center py-3 m-2" style="border: 3px solid rgb(131, 218, 255); border-radius: 30px;"><p>' + Object.values(credits)[i] + ' semester GPA: <span id="' + Object.values(credits)[i] + '"></span></p></div>'
-        } else {
-            subjectBlock += `
+    let courseBlock = '';
+    credits.forEach(semester => {    
+
+        let semesterName = semester['name']
+        marks[semesterName] = {};
+        for(let n = 1; n < Object.values(semester).length; n++){
+            course = Object.keys(semester)[n];
+            courseBlock += `
             <div class="d-flex align-items-center p-2">
-                <div class="section-icon px-3 py-2">` + Object.values(credits)[i] + `</div>
+                <div class="section-icon px-3 py-2"> ${ semester[course] } </div>
                 <div class="d-flex justify-content-between flex-wrap w-100 align-items-center el">
-                    <p>` + Object.keys(credits)[i] + `</p>
-                    <div class="marks d-flex">` + evaluation(Object.keys(credits)[i]) +
-                `</div>
-                </div>
-            </div>`;
+                    <p> ${ course } </p>
+                    <div class="marks d-flex">` 
+                    //buttons
+                    for(let k = 0; k < Object.keys(rating).length; k++){
+                        let mark = Object.keys(rating)[k];
+                        courseBlock += `<div class=" ${ mark }" id="${ course + mark }" onclick = "set( '${semesterName}', '${ course }', '${ mark }')"><p> ${ rating[mark]['textForm'] } </p></div>`
+                    }
+                courseBlock += `</div> </div> </div>`;
         }
-    }
-    document.getElementById('container').innerHTML = subjectBlock;
+        courseBlock += '<div class="width:100 text-center py-3 m-2" style="border: 3px solid rgb(131, 218, 255); border-radius: 30px;"><p>' + semesterName + ' semester GPA: <span id="' + semesterName + '"></span></p></div>'
+    });
+    document.querySelector('#container').innerHTML = courseBlock;
 }
