@@ -39,6 +39,24 @@ let credits = [
         "Internet Programing / Economics": 2,
         'Academic English 4': 2,
         'Basic korean 2': 1,
+    },
+    {
+        name: "Junior 1st",
+        "Signals and Systems": 3,
+        "Introduction to Economics": 3,
+        "Operating System": 3,
+        "Database": 3,
+        "Computer Algorithm": 3,
+        "History of Uzbekistan": 1,
+    },
+    {
+        name: "Junior 2nd",
+        "Unix Programing": 3,
+        "Probability and Statistics": 3,
+        "Engineering Communications": 3,
+        "Understanding Property Rights": 3,
+        "Computer Networks": 3,
+        "Database Application and Design": 3,
     }
 ];
 let rating = {
