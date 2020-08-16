@@ -26,3 +26,6 @@
 .dark .yellow{
     color: rgb(202, 202, 202);
 }
+.dark .container > .course:hover {
+    background-color: rgb(34, 33, 33);
+}

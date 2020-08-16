@@ -183,7 +183,7 @@ window.onload = function () {
         for(let n = 1; n < Object.values(semester).length; n++){
             course = Object.keys(semester)[n];
             courseBlock += `
-            <div class="d-flex align-items-center p-2">
+            <div class="d-flex align-items-center p-2 course">
                 <div class="section-icon px-3 py-2"> ${ semester[course] } </div>
                 <div class="d-flex justify-content-between flex-wrap w-100 align-items-center el">
                     <p> ${ course } </p>
