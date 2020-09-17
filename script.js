@@ -12,7 +12,7 @@ document.getElementById('theme').onclick = function(){
     // if its dark sets as dark in cookies too
     document.getElementById('body').classList.toggle('dark');
     currTheme = currTheme == 'dark' ? 'light' : 'dark';
-    document.cookie = `theme=${ currTheme }`;
+    document.cookie = `theme=${ currTheme }; expires=Fri, 31 Dec 9999 23:59:59 GMT";`;
 }
 
 document.getElementById("telContact").innerHTML = `for changes you can contact <a href="https://t.me/${ "jor_ban" }"> me by telegram </a>!`;
