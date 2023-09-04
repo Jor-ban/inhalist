@@ -1,201 +1,119 @@
 //data part
-let credits = [
+import { credits } from './calculator-data.js';
+
+let marksList = [
     {
-        name: 'Freshmen 1st',
-        'OOP 1': 3,
-        'Calculus 1': 3,
-        'Physics 1': 3,
-        'Intro To IT': 3,
-        'Academic English 1': 2,
-        'Academic Reading': 2,
-        'Physics Experiment 1': 1,
-    },
-    {
-        name: 'Freshmen 2nd',
-        'Calculus 2': 3,
-        'Creative Engineering': 3,
-        'Physics 2': 3,
-        'OOP 2': 3,
-        'Academic English 2': 2,
-        'Academic Writing': 2,
-        'Physics Experiment 2': 1,
-    },
-    {
-        name: 'Sophomore 1st',
-        'Linear Algebra' : 3,
-        'Discrete Mathematics': 3,
-        'Application Programing in Java': 3,
-        'Digital Logic and Circuit': 3,
-        'Data Structure' : 3,
-        'Academic English 3': 2,
-        'Basic korean 1': 1,
-    },
-    {
-        name: "Sophomore 2nd",
-        'Engineering Math': 3,
-        'History of Uzbekistan': 3,
-        "Computer Architecture / Signals": 3,
-        'System Programing': 3,
-        "Internet Programing / Economics": 2,
-        'Academic English 4': 2,
-        'Basic korean 2': 1,
-    },
-    {
-        name: "Junior 1st",
-        "Signals and Systems": 3,
-        "Introduction to Economics": 3,
-        "Operating System": 3,
-        "Database": 3,
-        "Computer Algorithm": 3,
-        "History of Uzbekistan": 1,
-    },
-    {
-        name: "Junior 2nd",
-        "Unix Programing": 3,
-        "Probability and Statistics": 3,
-        "Engineering Communications": 3,
-        "Understanding Property Rights": 3,
-        "Computer Networks": 3,
-        "Database Application and Design": 3,
-    }
-];
-let rating = {
-    aPlus: {
-        textForm: 'A+',
+        name: 'aPlus',
+        textName: 'A+',
         value: 4.5,
-    },
-    a: {
-        textForm: 'A',
+    }, {
+        name: 'a',
+        textName: 'A',
         value: 4,
-    },
-    bPlus: {
-        textForm: 'B+',
+    }, {
+        name: 'bPlus',
+        textName: 'B+',
         value: 3.5,
-    },
-    b: {
-        textForm: 'B',
+    }, {
+        name: 'b',
+        textName: 'B',
         value: 3,
-    },
-    cPlus: {
-        textForm: 'C+',
+    }, {
+        name: 'cPlus',
+        textName: 'C+',
         value: 2.5,
-    },
-    c: {
-        textForm: 'C',
+    }, {
+        name: 'c',
+        textName: 'C',
         value: 2,
-    },
-    dPlus: {
-        textForm: 'D+',
+    }, {
+        name: 'dPlus',
+        textName: 'D+',
         value: 1.5,
-    },
-    d: {
-        textForm: 'D',
+    }, {
+        name: 'd',
+        textName: 'D',
         value: 1,
-    },
-    f: {
-        textForm: 'F',
+    }, {
+        name: 'f',
+        textName: 'F',
         value: 0,
     },
-}
-let marks = {};
+]
+const marksState = {}
 
-function set(semesterName, course, mark){
-    marks[semesterName][course] = rating[mark]['value'];
-    return calculate(semesterName);
-}
-
-function setButtonStyle(course, value){
-    let marksList = Object.keys(rating);
-    let textMark = '';
-    switch(value){
-        case 4.5:
-            textMark = 'aPlus'; break;
-        case 4:
-            textMark = 'a'; break;
-        case 3.5:
-            textMark = 'bPlus'; break;
-        case 3:
-            textMark = 'b'; break;
-        case 2.5:
-            textMark = 'cPlus'; break;
-        case 2:
-            textMark = 'c'; break;
-        case 1.5:
-            textMark = 'dPlus'; break;
-        case 1:
-            textMark = 'd'; break;
-        default:
-            textMark = 'f';
+window.set = function(semesterName, courseName, markIndex) {
+    if(marksState[semesterName][courseName] === marksList[markIndex].value) {
+        delete marksState[semesterName][courseName]
+        setButtonStyle(courseName, markIndex, false)
+    } else {
+        marksState[semesterName][courseName] = marksList[markIndex].value;
+        setButtonStyle(courseName, markIndex, true)
     }
-    marksList.forEach(mark => {
-        console.log(course, mark)
-        if(mark != textMark){
-            document.getElementById(course + mark).classList.remove(mark + 'Active');
-        }
-    });
-    document.getElementById(course + textMark).classList.add(textMark + 'Active');
+    calculate(semesterName);
+    calculateAverage();
+}
+
+function setButtonStyle(courseName, markIndex, addClass){
+    marksList.forEach(mark => document.getElementById(courseName + mark.name).classList.remove('active-mark'));
+    if(addClass)
+        document.getElementById(courseName + marksList[markIndex].name)?.classList?.add('active-mark');
 
 }
 
 function calculateAverage(){
     let activeSemesters = 0;
     let sum = 0;
-    Object.keys(marks).forEach(semester =>{
-        if(marks[semester]['overall']){
-            sum += marks[semester]['overall'];
+    Object.keys(marksState).forEach(semester =>{
+        if(marksState[semester]['overall']){
+            sum += marksState[semester]['overall'];
             activeSemesters++;
         }
     });
-    document.getElementById('gpa').innerHTML = (sum / activeSemesters).toFixed(2);
+    document.getElementById('gpa').innerHTML = (sum / (activeSemesters || 1)).toFixed(2);
 }
 
-function calculate(semester){
-    let semesterGpa = 0;
-    let earnedMarks = 0;
-    let earnedCredits = 0;
-    let courseCredits = {};
-    credits.forEach(element => {
-        if(element['name'] == semester)
-            courseCredits = element;
-    });
-    Object.keys(marks[semester]).forEach(course => {
-        if(course != 'overall'){
-            earnedMarks += marks[semester][course] * courseCredits[course];
-            earnedCredits += courseCredits[course];
-            if(courseCredits[course] == 0)
-                earnedCredits += 1; // in case if got F
-            setButtonStyle(course, marks[semester][course])
+function calculate(semesterName){
+    let earnedMarksSum = 0;
+    let creditsOverall = 0;
+    let courseInfo = credits.find(s => s.name == semesterName);
+
+    courseInfo.subjects.forEach(course => {
+        if(marksState[semesterName][course.name] !== undefined) {
+            earnedMarksSum += course.credits * marksState[semesterName][course.name];
+            creditsOverall += course.credits;
         }
     })
-    semesterGpa = earnedMarks / earnedCredits;
-    marks[semester]['overall'] = semesterGpa;
-    document.getElementById(semester).innerHTML = semesterGpa.toFixed(2);
-    calculateAverage();
+    console.log({ semesterName, creditsOverall, earnedMarksSum, courseInfo, marksState })
+    const semesterGpa = earnedMarksSum / (creditsOverall || 1);
+    marksState[semesterName].overall = semesterGpa;
+    document.getElementById(semesterName).innerHTML = semesterGpa.toFixed(2);
 }
 
 //main function
 window.onload = function () {
     let courseBlock = '';
-    credits.forEach(semester => {    
+    credits.forEach((semester) => {
+        marksState[semester.name] = {};
 
-        let semesterName = semester['name']
-        marks[semesterName] = {};
-        for(let n = 1; n < Object.values(semester).length; n++){
-            course = Object.keys(semester)[n];
+        semester.subjects.forEach((course) => {
             courseBlock += `
             <div class="d-flex align-items-center p-2 course">
-                <div class="section-icon px-3 py-2"> ${ semester[course] } </div>
+                <div class="section-icon px-3 py-2"> ${ course.credits } </div>
                 <div class="d-flex justify-content-between flex-wrap w-100 align-items-center el">
-                    <p> ${ course } </p>
+                    <p> ${ course.name } </p>
                     <div class="marks d-flex">` 
                     //buttons
-                    for(let k = 0; k < Object.keys(rating).length; k++){
-                        let mark = Object.keys(rating)[k];
-                        courseBlock += `<div class=" ${ mark }" id="${ course + mark }" onclick = "set( '${semesterName}', '${ course }', '${ mark }')"><p> ${ rating[mark]['textForm'] } </p></div>`
-                    }
+                    marksList.forEach((mark, markIndex) => {
+                        courseBlock += `
+                            <div class="mark-option ${ mark.name }" id="${ course.name + mark.name }" onclick="set('${semester.name}','${ course.name }',${ markIndex })">
+                                <p>${ mark.textName }</p>
+                            </div>
+                        `
+                    })
                 courseBlock += `</div> </div> </div>`;
-        }
-        courseBlock += '<div class="width:100 text-center py-3 m-2" style="border: 3px solid rgb(131, 218, 255); border-radius: 30px;"><p>' + semesterName + ' semester GPA: <span id="' + semesterName + '"></span></p></div>'
+        })
+        courseBlock += '<div class="width:100 text-center py-3 m-2" style="border: 3px solid rgb(131, 218, 255); border-radius: 30px;"><p>' + semester.name + ' semester GPA: <span id="' + semester.name + '"></span></p></div>'
     });
     document.querySelector('#container').innerHTML = courseBlock;
 }

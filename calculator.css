@@ -4,30 +4,30 @@
 }
 
 .d{border-color: #FF7E35 !important; color: #FF7E35 !important;}    
-.dPlus{border-color: #FFAE35 !important; color: #FFAE35 !important;}
-.c{border-color: #FFEB35 !important; color: #FFEB35 !important;}
-.cPlus{border-color: #D7FF35 !important; color: #D7FF35 !important;}
-.b{border-color: #76FF35 !important; color: #76FF35 !important;}
-.bPlus{border-color: #35FFC2 !important; color: #35FFC2 !important;}
-.a{border-color: #35E7FF !important; color: #35E7FF !important;}
+.dPlus{border-color: #e7a23b !important; color: #e7a23b !important;}
+.c{border-color: #daca41 !important; color: #daca41 !important;}
+.cPlus{border-color: #a1b844 !important; color: #a1b844 !important;}
+.b{border-color: #6cce3f !important; color: #6cce3f !important;}
+.bPlus{border-color: #42d6aa !important; color: #42d6aa !important;}
+.a{border-color: #44d4e7 !important; color: #44d4e7 !important;}
 .aPlus{border-color: #35B6FF !important; color: #35B6FF !important;}
 /*hovers*/
 .f:hover{box-shadow: 0px 0px 5px #FF3535 !important;}
 .d:hover{box-shadow: 0px 0px 5px #FF7E35 !important;}    
-.dPlus:hover{box-shadow: 0px 0px 5px #FFAE35 !important;}
-.c:hover{box-shadow: 0px 0px 5px#FFEB35 !important;}
-.cPlus:hover{box-shadow: 0px 0px 5px #D7FF35 !important;}
-.b:hover{box-shadow: 0px 0px 5px #76FF35 !important;}
-.bPlus:hover{box-shadow: 0px 0px 5px #35FFC2 !important;}
-.a:hover{box-shadow: 0px 0px 5px #35E7FF !important;}
+.dPlus:hover{box-shadow: 0px 0px 5px #e7a23b !important;}
+.c:hover{box-shadow: 0px 0px 5px#daca41 !important;}
+.cPlus:hover{box-shadow: 0px 0px 5px #a1b844 !important;}
+.b:hover{box-shadow: 0px 0px 5px #6cce3f !important;}
+.bPlus:hover{box-shadow: 0px 0px 5px #42d6aa !important;}
+.a:hover{box-shadow: 0px 0px 5px #44d4e7 !important;}
 .aPlus:hover{box-shadow: 0px 0px 5px #35B6FF !important;}
 /*activated marks*/
-.fActive{background-color: #FF3535 !important; color: white !important;}
-.dActive{background-color: #FF7E35 !important; color: white !important;}
-.dPlusActive{background-color: #FFAE35 !important; color: white !important;}
-.cActive{background-color: #FFEB35 !important; color: white !important;}
-.cPlusActive{background-color: #D7FF35 !important; color: white !important;}
-.bActive{background-color:#76FF35 !important; color: white !important; }
-.bPlusActive{background-color: #35FFC2 !important; color: white !important;}
-.aActive{background-color: #35E7FF !important; color: white !important;}
-.aPlusActive{background-color: #35B6FF !important; color: white !important;}
+.f.active-mark{background-color: #FF3535 !important; color: white !important;}
+.d.active-mark{background-color: #FF7E35 !important; color: white !important;}
+.dPlus.active-mark{background-color: #e7a23b !important; color: white !important;}
+.c.active-mark{background-color: #daca41 !important; color: white !important;}
+.cPlus.active-mark{background-color: #a1b844 !important; color: white !important;}
+.b.active-mark{background-color:#6cce3f !important; color: white !important; }
+.bPlus.active-mark{background-color: #42d6aa !important; color: white !important;}
+.a.active-mark{background-color: #44d4e7 !important; color: white !important;}
+.aPlus.active-mark{background-color: #35B6FF !important; color: white !important;}

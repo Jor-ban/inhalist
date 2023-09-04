@@ -29,3 +29,6 @@
 .dark .container > .course:hover {
     background-color: rgb(34, 33, 33);
 }
+.dark .mark-option.active-mark {
+    color: black !important;
+}

@@ -1,4 +1,4 @@
-currTheme = document.cookie.split("=")[1]
+const currTheme = document.cookie.split("=")[1]
 if(currTheme == "dark") {
     document.getElementById('body').classList.add('dark');
 }
