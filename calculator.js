@@ -99,21 +99,21 @@ window.onload = function () {
         semester.subjects.forEach((course) => {
             courseBlock += `
             <div class="d-flex align-items-center p-2 course">
-                <div class="section-icon px-3 py-2"> ${ course.credits } </div>
+                <div class="section-icon"> ${ course.credits } </div>
                 <div class="d-flex justify-content-between flex-wrap w-100 align-items-center el">
-                    <p> ${ course.name } </p>
+                    <p class="course-name"> ${ course.name } </p>
                     <div class="marks d-flex">` 
                     //buttons
                     marksList.forEach((mark, markIndex) => {
                         courseBlock += `
                             <div class="mark-option ${ mark.name }" id="${ course.name + mark.name }" onclick="set('${semester.name}','${ course.name }',${ markIndex })">
-                                <p>${ mark.textName }</p>
+                                ${ mark.textName }
                             </div>
                         `
                     })
                 courseBlock += `</div> </div> </div>`;
         })
-        courseBlock += '<div class="width:100 text-center py-3 m-2" style="border: 3px solid rgb(131, 218, 255); border-radius: 30px;"><p>' + semester.name + ' semester GPA: <span id="' + semester.name + '"></span></p></div>'
+        courseBlock += '<div class="w-100 text-center py-1 py-md-2 py-lg-3 m-2" style="border: 3px solid rgb(131, 218, 255); border-radius: 30px;"><p>' + semester.name + ' semester GPA: <span id="' + semester.name + '"></span></p></div>'
     });
     document.querySelector('#container').innerHTML = courseBlock;
 }
