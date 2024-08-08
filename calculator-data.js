@@ -73,7 +73,7 @@ export const credits = [
                 credits: 3,
                 required: true,
             }, {
-                name: 'Discrete Mathematics',
+                name: 'Engineering Mathematics',
                 credits: 3,
                 required: true,
             }, {
@@ -81,7 +81,7 @@ export const credits = [
                 credits: 3,
                 required: true,
             }, {
-                name: 'Digital Logic and Circuit',
+                name: 'Circuit and Lab',
                 credits: 3,
             }, {
                 name: 'Data Structure',
@@ -91,7 +91,7 @@ export const credits = [
                 credits: 2,
             }, {
                 name: 'Basic korean 1',
-                credits: 1,
+                credits: 2,
             }
         ],
     },
@@ -99,15 +99,15 @@ export const credits = [
         name: "Sophomore Spring (2nd)",
         subjects: [
             {
-                name: 'Circuit and lab',
+                name: 'Digital Logic and Circuit',
                 credits: 3,
             },{
-                name: 'Engineering Mathematics',
+                name: 'Discrete Mathematics',
                 credits: 3,
                 required: true,
             }, {
-                name: 'History of Uzbekistan',
-                credits: 3,
+                name: 'History of Uzbekistan 1',
+                credits: 1,
                 required: true,
             }, {
                 name: 'System Programming',
@@ -116,8 +116,11 @@ export const credits = [
                 name: 'Computer Architecture',
                 credits: 3,
             }, {
-                name: 'Internet programming',
-                credits: 3,
+                name: 'Academic English 4',
+                credits: 2,
+            }, {
+                name: 'Basic Korean 2',
+                credits: 2,
             }
         ],
     },
@@ -125,7 +128,7 @@ export const credits = [
         name: "Junior Fall (1st)",
         subjects: [
             {
-                name: 'Signals and Systems',
+                name: 'System Analysis',
                 credits: 3,
             }, {
                 name: 'Introduction to Economics',
@@ -141,7 +144,7 @@ export const credits = [
                 name: 'Computer Algorithm',
                 credits: 3,
             }, {
-                name: 'Philosophy',
+                name: 'History of Uzbekistan 2',
                 credits: 1,
                 required: true,
             }
@@ -151,7 +154,7 @@ export const credits = [
         name: "Junior Spring (2nd)",
         subjects: [
             {
-                name: 'Probability and Statistics',
+                name: 'Signals and Systems',
                 credits: 3,
                 required: true,
             }, {
@@ -168,7 +171,7 @@ export const credits = [
                 name: 'Database Application and Design',
                 credits: 3,
             }, {
-                name: 'Engineering Communications',
+                name: 'Internet Programming',
                 credits: 3,
                 required: true,
             }, 
@@ -177,9 +180,8 @@ export const credits = [
         name: "Senior Fall (1st)",
         subjects: [
             {
-                name: 'Contemporary Topics and Trends',
-                credits: 2,
-                required: true,
+                name: 'Software Engineering',
+                credits: 3,
             }, {
                 name: 'Embedded Software & Design',
                 credits: 3,
@@ -187,10 +189,10 @@ export const credits = [
                 name: 'Artificial Intelligence',
                 credits: 3,
             }, {
-                name: 'E-Commerce',
+                name: 'Multimedia Computing',
                 credits: 3,
             }, {
-                name: 'Big D.ata anal.ytics',
+                name: 'Big Data analytics',
                 credits: 3,
             }
         ],
@@ -202,11 +204,8 @@ export const credits = [
                 credits: 3,
                 required: true,
             }, {
-                name: 'Software Engineering',
+                name: 'Computer Security',
                 credits: 3,
-            }, {
-                name: 'Engineering Ethics',
-                credits: 2,
             }, {
                 name: 'Multimedia Computing',
                 credits: 3,
